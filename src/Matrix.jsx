@@ -25,7 +25,7 @@ export default class Matrix extends React.Component {
     interval: 60,
     color: "#00cc33",
     frequency: 0.01,
-    speed: 2,
+    speed: 1.8,
   };
 
   constructor(props) {
@@ -79,7 +79,7 @@ export default class Matrix extends React.Component {
     let columns = this.state.columns;
     let numberOfColumns = this.state.numberOfColumns;
 
-    context.fillStyle = "rgba(0,0,0,0.05)";
+    context.fillStyle = "rgba(0,0,0,0.07)";
     context.fillRect(0, 0, this.state.canvas.width, this.state.canvas.height);
     context.fillStyle = this.props.color;
     context.font =

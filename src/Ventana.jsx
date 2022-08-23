@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export const Ventana = () => {
   const [isShow, setIsShow] = useState(false);
@@ -8,9 +8,10 @@ export const Ventana = () => {
 
   useEffect(() => {
     setTimeout(() => setIsShow(true), 5000);
+    access.current.focus();
   }, [isShow]);
 
-  const window = true;
+  const access = useRef(null);
 
   return (
     <>
@@ -20,10 +21,18 @@ export const Ventana = () => {
           style={{ display: isShow ? "" : "none" }}
         >
           <div className="modal-content">
-            <span onClick={onClose} className="close">
+            {/* <span onClick={onClose} className="close">
               ×
-            </span>{" "}
-            <h1>PORTFOLIO JUAN ANTONIO</h1>
+            </span> */}
+
+            <form>
+              <input
+                ref={access}
+                className="terminal "
+                type="text"
+                placeholder="npm run help"
+              />
+            </form>
           </div>
         </div>
       </div>

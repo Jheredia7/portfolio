@@ -8,20 +8,61 @@
   height: 100%;
   overflow: auto;
   background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .modalContainer .modal-content {
-  background-color: #000000;
+  position: relative;
+  background: #000000;
+  text-transform: uppercase;
   color: #00ff44;
+  width: 600px;
+  height: 150px;
   margin: auto;
   padding: 20px;
-  border: 2px solid rgb(2, 96, 0);
-  border-top: 10px solid #00ff44;
+
   width: 60%;
-  font-family: matrix;
+  font-family: monospace;
   text-align: center;
-  font-size: 1cm;
+  font-size: 5cm;
+  border-radius: 5px;
+}
+.modalContainer .modal-content::before,
+.modalContainer .modal-content::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: calc(100% + 14px);
+  height: calc(100% + 14px);
+  top: -7px;
+  left: -7px;
+  border-radius: 4px;
+  background: linear-gradient(
+    45deg,
+    #00ff44,
+    #00c434,
+    #019d2b,
+    #01651c,
+    #002f0d,
+    #000f04
+  );
+  background-size: 400%;
+  animation: border 2s infinite alternate-reverse;
+}
+@keyframes border {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+.modalContainer .modal-content::after {
+  filter: blur(50px);
 }
 
 .modalContainer .close {
@@ -39,9 +80,19 @@
   cursor: pointer;
 }
 
-@font-face {
-  font-family: "Matrix";
-  src: local("matrix"), url(./fonts/matrix.ttf) format("truetype");
+.terminal {
+  font-size: 25px;
+  background-color: #000000;
+  color: #00ce37;
+  border: #000000;
+  outline-color: #000000;
+  float: left;
+}
+.terminal:focus {
+  outline: none;
 }
 
-/* All delay classes will take half the time to start */
+.terminal::placeholder {
+  color: #026e1f;
+  opacity: 50%;
+}

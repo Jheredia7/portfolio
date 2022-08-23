@@ -19,13 +19,13 @@ export default class Matrix extends React.Component {
   static defaultProps = {
     width: 640,
     height: 480,
-    fullscreen: false,
-    colSize: 11,
-    fontSize: 13.5,
-    interval: 30,
+    fullscreen: true,
+    colSize: 15,
+    fontSize: 20,
+    interval: 60,
     color: "#00cc33",
-    frequency: 0.005,
-    speed: 1.6,
+    frequency: 0.01,
+    speed: 2,
   };
 
   constructor(props) {
@@ -44,7 +44,8 @@ export default class Matrix extends React.Component {
       let columns = [];
       let context = this.state.canvas.getContext("2d");
       let size = this.props.colSize;
-      let source = "0 0 1 1";
+      let source =
+        "a b c d e f g h i j k l m n ñ o p q r s t u v w x y z 1 2 3 4 5 6 7 8 9 0 ";
       let width = this.props.fullscreen ? window.innerWidth : this.props.width;
       let height = this.props.fullscreen
         ? window.innerHeight

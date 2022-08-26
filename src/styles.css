@@ -14,18 +14,20 @@
 .modalContainer .modal-content {
   position: relative;
   background: #000000;
-  text-transform: uppercase;
   color: #00ff44;
   width: 600px;
   height: 500px;
   margin: auto;
   padding: 20px;
-
   width: 60%;
-  font-family: monospace;
-  text-align: center;
-  font-size: 5cm;
+  text-align: left;
   border-radius: 5px;
+  font-size: 25px;
+  background-color: #000000;
+
+  font-family: monospace;
+  font-weight: lighter;
+  text-align: left;
 }
 .modalContainer .modal-content::before,
 .modalContainer .modal-content::after {
@@ -65,21 +67,6 @@
   filter: blur(50px);
 }
 
-.modalContainer .close {
-  color: #00ff44;
-
-  float: right;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.modalContainer .close:hover,
-.modalContainer .close:focus {
-  color: #00ff44;
-  text-decoration: #00ff44;
-  cursor: pointer;
-}
-
 .terminal {
   font-size: 25px;
   background-color: #000000;
@@ -95,4 +82,30 @@
 .terminal::placeholder {
   color: #026e1f;
   opacity: 50%;
+}
+.comandos {
+  display: table;
+  font-size: 25px;
+  background-color: #000000;
+  color: #00ce37;
+  font-family: monospace;
+  font-weight: lighter;
+  text-align: left;
+}
+
+.spani {
+  position: absolute;
+  right: 0;
+  width: 0;
+  background: #000000;
+  border-left: 1px solid #00ff44;
+  animation: maquina 1s steps(180);
+}
+@keyframes maquina {
+  from {
+    width: 98%;
+  }
+  to {
+    width: 70%;
+  }
 }

@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 export const Ventana = () => {
   const [isShow, setIsShow] = useState(false);
   const [comando, setComando] = useState("");
+  // const [next, setNext] = useState(false);
   useEffect(() => {
     setTimeout(() => setIsShow(true), 5000);
   }, []);
@@ -15,15 +16,14 @@ export const Ventana = () => {
 
   const onClose = (event) => {
     event.preventDefault();
-    if (comando === "npm run help") return setIsShow(false);
+    if (comando === "npm run help") return setComando(true);
   };
-
-  console.log(isShow);
+  console.log(`Comando: ${comando}`);
   return (
     <>
       <div>
         <div
-          className="modalContainer animate__animated animate__fadeInDownBig"
+          className={"modalContainer animate__animated animate__fadeInDownBig "}
           style={{ display: isShow ? "" : "none" }}
         >
           <div className="modal-content">
@@ -38,9 +38,20 @@ export const Ventana = () => {
                 type="text"
                 placeholder="npm run help"
                 onChange={(event) => setComando(event.target.value)}
-                value={comando}
                 name="comando"
+                style={{ display: comando === true ? "none" : "" }}
               />
+              <div>
+                <h1
+                  className="comandos"
+                  type="text"
+                  name="comandos"
+                  style={{ display: comando === true ? "" : "none" }}
+                >
+                  Here are the available commands:
+                  <span className="spani">&#160;</span>
+                </h1>
+              </div>
             </form>
           </div>
         </div>

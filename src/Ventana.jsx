@@ -16,7 +16,9 @@ export const Ventana = () => {
 
   const onClose = (event) => {
     event.preventDefault();
-    if (comando === "npm run help") return setComando(true);
+    if (comando === "npm run help") {
+      return setComando(true);
+    }
   };
   console.log(`Comando: ${comando}`);
   return (
@@ -33,6 +35,8 @@ export const Ventana = () => {
 
             <form onSubmit={onClose}>
               <input
+                autoComplete="off"
+                spellCheck={false}
                 ref={access}
                 className="terminal "
                 type="text"
@@ -48,7 +52,7 @@ export const Ventana = () => {
                   name="comandos"
                   style={{ display: comando === true ? "" : "none" }}
                 >
-                  Here are the available commands:
+                  Aqui estan los comandos disponibles:
                   <span className="spani">&#160;</span>
                 </h1>
               </div>

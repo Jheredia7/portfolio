@@ -74,6 +74,7 @@
   border: #000000;
   outline-color: #000000;
   float: left;
+  text-decoration: none;
 }
 .terminal:focus {
   outline: none;
@@ -99,13 +100,13 @@
   width: 0;
   background: #000000;
   border-left: 1px solid #00ff44;
-  animation: maquina 1s steps(180);
+  animation: maquina 1s steps(80);
 }
 @keyframes maquina {
   from {
     width: 98%;
   }
   to {
-    width: 70%;
+    width: 69%;
   }
 }

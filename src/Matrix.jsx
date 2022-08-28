@@ -17,13 +17,11 @@ export default class Matrix extends React.Component {
   };
 
   static defaultProps = {
-    width: 640,
-    height: 480,
     fullscreen: true,
     colSize: 15,
     fontSize: 20,
     interval: 60,
-    color: "#00cc33",
+    color: "#000000",
     frequency: 0.01,
     speed: 1.8,
   };
@@ -79,7 +77,7 @@ export default class Matrix extends React.Component {
     let columns = this.state.columns;
     let numberOfColumns = this.state.numberOfColumns;
 
-    context.fillStyle = "rgba(0,0,0,0.07)";
+    context.fillStyle = "rgba(243,234,243,0.1)";
     context.fillRect(0, 0, this.state.canvas.width, this.state.canvas.height);
     context.fillStyle = this.props.color;
     context.font =

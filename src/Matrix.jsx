@@ -20,10 +20,10 @@ export default class Matrix extends React.Component {
     fullscreen: true,
     colSize: 15,
     fontSize: 20,
-    interval: 60,
+    interval: 70,
     color: "#000000",
     frequency: 0.01,
-    speed: 1.8,
+    speed: 2,
   };
 
   constructor(props) {
@@ -43,7 +43,7 @@ export default class Matrix extends React.Component {
       let context = this.state.canvas.getContext("2d");
       let size = this.props.colSize;
       let source =
-        "a b c d e f g h i j k l m n ñ o p q r s t u v w x y z 1 2 3 4 5 6 7 8 9 0 ";
+        "o n i h c a b c d e f g h i j k l m n ñ o p q r s t u v w x y z 1 2 3 4 5 6 7 8 9 0 ";
       let width = this.props.fullscreen ? window.innerWidth : this.props.width;
       let height = this.props.fullscreen
         ? window.innerHeight
@@ -77,7 +77,7 @@ export default class Matrix extends React.Component {
     let columns = this.state.columns;
     let numberOfColumns = this.state.numberOfColumns;
 
-    context.fillStyle = "rgba(243,234,243,0.1)";
+    context.fillStyle = "rgba(243,243,243,0.15)";
     context.fillRect(0, 0, this.state.canvas.width, this.state.canvas.height);
     context.fillStyle = this.props.color;
     context.font =
@@ -114,7 +114,6 @@ export default class Matrix extends React.Component {
       <div
         style={{
           ...style,
-          background: "#000000",
         }}
       >
         <canvas ref="canvas" />

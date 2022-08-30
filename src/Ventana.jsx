@@ -20,7 +20,7 @@ export const Ventana = () => {
   }, [isShow]);
   useEffect(() => {
     access.current.focus();
-  }, [comando]);
+  }, [acierto]);
   const access = useRef(null);
 
   const onClose = (event) => {
@@ -56,15 +56,18 @@ export const Ventana = () => {
       <div>
         <div
           className={"modalContainer animate__animated animate__fadeInDownBig "}
-          style={{
-            display: isShow ? "" : "none",
-          }}
+          style={{}}
         >
-          <div className="modal-content">
-            {/* <span onClick={onClose} className="close">
-              ×
-            </span> */}
-
+          <div
+            className={"modal-content2 animate__animated animate__shakeX"}
+            style={{ display: acierto === false ? "" : "none" }}
+          >
+            <h1 className="mensajeError">Erorr</h1>
+          </div>
+          <div
+            className="modal-content"
+            style={{ display: acierto !== false ? "" : "none" }}
+          >
             <form id="ventana" onSubmit={onClose}>
               <input
                 autoComplete="off"

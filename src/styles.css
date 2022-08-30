@@ -69,7 +69,60 @@ body {
 .modalContainer .modal-content::after {
   filter: blur(50px);
 }
+.modalContainer .modal-content2 {
+  position: relative;
 
+  color: #ffffff;
+  width: 22%;
+  height: 8%;
+  margin: auto;
+  padding: 20px;
+
+  text-align: center;
+  border-radius: 5px;
+  font-size: 25px;
+
+  background: linear-gradient(#ff0d0d, #ff0000);
+  font-family: monospace;
+  font-weight: lighter;
+  text-align: left;
+}
+.modalContainer .modal-content2::before,
+.modalContainer .modal-content2::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: calc(100% + 14px);
+  height: calc(100% + 14px);
+  top: -7px;
+  left: -7px;
+  border-radius: 4px;
+  background-color: rgba(230, 230, 230, 1);
+  background-size: 400%;
+  animation: error 2s infinite alternate-reverse;
+}
+@keyframes error {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.modalContainer .modal-content2::after {
+  filter: blur(50px);
+}
+.mensajeError {
+  font-size: 25px;
+  width: auto;
+  font-weight: 100;
+  text-align: center;
+  padding-bottom: -100px;
+}
 .terminal {
   width: 100%;
   font-size: 25px;
@@ -118,7 +171,7 @@ body {
 
 .boton {
   left: 21px;
-  bottom: -80px;
+
   font-size: 20px;
   text-align: center;
   border: none;
@@ -142,6 +195,7 @@ body {
 .boton:active {
   text-decoration: none;
 }
+
 @keyframes aparecer {
   from {
     opacity: 60%;

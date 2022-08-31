@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
+import Juego from "./Game";
 import Matrix from "./Matrix";
 
 export const Ventana = () => {
   const [isShow, setIsShow] = useState(false);
+  const [startedGame, setStartedGame] = useState(false);
   const [color, setColor] = useState("#000000");
 
   const [comando, setComando] = useState("");
@@ -12,7 +14,7 @@ export const Ventana = () => {
   const [boton3, setBoton3] = useState(false);
   // const [next, setNext] = useState(false);
   useEffect(() => {
-    setTimeout(() => setIsShow(true), 5000);
+    setTimeout(() => setIsShow(true), 3000);
   }, []);
 
   useEffect(() => {
@@ -50,19 +52,52 @@ export const Ventana = () => {
     setBoton3(false);
   };
 
+  const startGame = () => {
+    setAcierto(false);
+
+    setStartedGame(true);
+  };
+
+  const closeGame = () => {
+    setStartedGame(false);
+    setAcierto(null);
+    setComando("");
+    setBoton1(false);
+    setBoton2(false);
+    setBoton3(false);
+  };
+
   return (
     <>
       <Matrix fullscreen={true} color={color} />
       <div>
         <div
           className={"modalContainer animate__animated animate__fadeInDownBig "}
-          style={{}}
+          style={{ display: isShow ? "" : "none" }}
         >
           <div
             className={"modal-content2 animate__animated animate__shakeX"}
-            style={{ display: acierto === false ? "" : "none" }}
+            style={{
+              display:
+                (acierto === false) & (startedGame === false) ? "" : "none",
+            }}
           >
             <h1 className="mensajeError">Erorr</h1>
+          </div>
+          <div
+            className="game-area"
+            style={{
+              display: startedGame === true ? "" : "none",
+            }}
+          >
+            {startedGame === true && <Juego />}
+            <button
+              onClick={closeGame}
+              className="boton-game"
+              style={{ display: boton3 === true ? "" : "none" }}
+            >
+              Cerrar
+            </button>
           </div>
           <div
             className="modal-content"
@@ -94,11 +129,11 @@ export const Ventana = () => {
               </h1>
               <div>
                 <button
-                  disabled
+                  onClick={startGame}
                   className="boton"
                   style={{ display: boton1 === true ? "" : "none" }}
                 >
-                  Ayuda
+                  Mini-juego
                 </button>
                 <a
                   href="https://www.linkedin.com/in/juanherediar/"

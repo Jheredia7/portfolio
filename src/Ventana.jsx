@@ -91,6 +91,8 @@ export const Ventana = () => {
             }}
           >
             {startedGame === true && <Juego />}
+            <h1 className="teclas"> ⬆️ Teclado</h1>
+
             <button
               onClick={closeGame}
               className="boton-game"

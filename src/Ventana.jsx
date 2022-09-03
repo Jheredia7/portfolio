@@ -5,7 +5,7 @@ import Matrix from "./Matrix";
 export const Ventana = () => {
   const [isShow, setIsShow] = useState(false);
   const [startedGame, setStartedGame] = useState(false);
-  const [color, setColor] = useState("#000000");
+  const [color, setColor] = useState("#39FF14");
 
   const [comando, setComando] = useState("");
   const [acierto, setAcierto] = useState(null);
@@ -38,7 +38,7 @@ export const Ventana = () => {
       setColor("#FF0000");
 
       setTimeout(() => setAcierto(null), 1500);
-      setTimeout(() => setColor("#000000"), 1500);
+      setTimeout(() => setColor("#39FF14"), 1500);
       setComando("");
       console.log(comando);
     }
@@ -60,11 +60,13 @@ export const Ventana = () => {
 
   const closeGame = () => {
     setStartedGame(false);
-    setAcierto(null);
-    setComando("");
+    setAcierto(true);
     setBoton1(false);
     setBoton2(false);
     setBoton3(false);
+    setTimeout(() => setBoton1(true), 1300);
+    setTimeout(() => setBoton2(true), 1550);
+    setTimeout(() => setBoton3(true), 1800);
   };
 
   return (
@@ -91,7 +93,6 @@ export const Ventana = () => {
             }}
           >
             {startedGame === true && <Juego />}
-            <h1 className="teclas"> ⬆️ Teclado</h1>
 
             <button
               onClick={closeGame}

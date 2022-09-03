@@ -77,7 +77,7 @@ export default class Matrix extends React.Component {
     let columns = this.state.columns;
     let numberOfColumns = this.state.numberOfColumns;
 
-    context.fillStyle = "rgba(0,0,0,0.08)";
+    context.fillStyle = "rgba(0,0,0,0.1)";
     context.fillRect(0, 0, this.state.canvas.width, this.state.canvas.height);
     context.fillStyle = this.props.color;
     context.font =

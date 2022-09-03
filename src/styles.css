@@ -256,7 +256,15 @@ body {
   position: absolute;
   width: 2%;
   height: 2%;
-  background-color: rgb(2, 255, 82);
-  border: 1px solid #000;
+  background-color: rgb(255, 2, 230);
+  border: 1px solid rgb(255, 255, 255);
+  z-index: 1;
+}
+.puntuacion {
+  top: 690px;
+  right: 50px;
+  position: absolute;
+  color: #39ff14;
+  font-family: monospace;
   z-index: 1;
 }

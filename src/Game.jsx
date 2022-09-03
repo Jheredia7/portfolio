@@ -124,7 +124,7 @@ class Juego extends Component {
   }
 
   onGameOver() {
-    alert(`Game Over (La puntuación es de ${this.state.snakeDots.length})`);
+    alert(`Game Over (La puntuación es de ${this.state.snakeDots.length - 2})`);
     this.setState(initialState);
   }
 
@@ -132,6 +132,9 @@ class Juego extends Component {
     return (
       <div>
         <Snake snakeDots={this.state.snakeDots} />
+        <h1 className="puntuacion">
+          Puntuación: {this.state.snakeDots.length - 2}
+        </h1>
         <Food dot={this.state.food} />
       </div>
     );

@@ -87,7 +87,7 @@ export const Ventana = () => {
             <h1 className="mensajeError">Erorr</h1>
           </div>
           <div
-            className="game-area animate__animated animate__backInDown"
+            className="game-area"
             style={{
               display: startedGame === true ? "" : "none",
             }}
@@ -95,7 +95,7 @@ export const Ventana = () => {
             {startedGame === true && <Juego />}
 
             <button onClick={closeGame} className="boton-game">
-              Cerrar
+              ❌
             </button>
           </div>
           <div
@@ -127,21 +127,22 @@ export const Ventana = () => {
                 <br />
               </h1>
               <div>
-                <button
-                  onClick={startGame}
-                  className="boton"
-                  style={{ display: boton1 === true ? "" : "none" }}
-                >
-                  Mini-juego
-                </button>
                 <a
                   href="https://www.linkedin.com/in/juanherediar/"
                   target="_blank"
                   className="boton"
-                  style={{ display: boton2 === true ? "" : "none" }}
+                  style={{ display: boton1 === true ? "" : "none" }}
                 >
                   Sobre mi
                 </a>
+                <button
+                  onClick={startGame}
+                  className="boton"
+                  style={{ display: boton2 === true ? "" : "none" }}
+                >
+                  Mini-juego
+                </button>
+
                 <button
                   onClick={onClear}
                   className="boton"

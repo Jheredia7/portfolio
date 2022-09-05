@@ -17,8 +17,8 @@ body {
 .modalContainer .modal-content {
   position: relative;
 
-  width: 19%;
-  height: 25%;
+  width: 26%;
+  height: 33%;
   margin: auto;
   padding: 20px;
 
@@ -197,50 +197,28 @@ body {
 
 .boton-game {
   position: relative;
-  left: 180px;
-  top: 570px;
+  left: 400px;
+  top: -90px;
   opacity: 100%;
-  font-size: 20px;
-  text-align: center;
+  font-size: 15px;
+  background-color: transparent;
   border: none;
   width: 30%;
   color: #000000;
-  background-color: #39ff14;
+
   text-decoration: none;
-
-  border-radius: 5px;
-  padding: 15px;
-}
-.teclas {
-  position: relative;
-  left: 320px;
-  top: -150px;
-  opacity: 30%;
-
-  padding: 15px;
-  margin: 8px;
-  text-decoration: none;
-  border: none;
-}
-
-@keyframes aparecer {
-  from {
-    opacity: 60%;
-  }
-  to {
-    opacity: 100%;
-  }
 }
 
 .game-area {
   position: relative;
-  color: #000000;
+  color: #39ff14;
   width: 20%;
-  height: 40%;
+  height: 16%;
   padding: 5%;
   margin: auto;
   border-radius: 6px;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(150, 150, 150, 0.9);
+  border: 15px #39ff14;
 }
 
 .snake-dot {
@@ -261,8 +239,8 @@ body {
   z-index: 1;
 }
 .puntuacion {
-  top: 690px;
-  right: 50px;
+  top: 280px;
+  right: 28px;
   position: absolute;
   color: #39ff14;
   font-family: monospace;

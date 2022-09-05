@@ -4,7 +4,7 @@ import Matrix from "./Matrix";
 
 export const Ventana = () => {
   const [isShow, setIsShow] = useState(false);
-  const [startedGame, setStartedGame] = useState(false);
+  const [startedGame, setStartedGame] = useState(null);
   const [color, setColor] = useState("#39FF14");
 
   const [comando, setComando] = useState("");
@@ -53,17 +53,17 @@ export const Ventana = () => {
   };
 
   const startGame = () => {
+    setBoton1(false);
+    setBoton2(false);
+    setBoton3(false);
     setAcierto(false);
 
     setStartedGame(true);
   };
 
   const closeGame = () => {
-    setStartedGame(false);
+    setStartedGame(null);
     setAcierto(true);
-    setBoton1(false);
-    setBoton2(false);
-    setBoton3(false);
     setTimeout(() => setBoton1(true), 1300);
     setTimeout(() => setBoton2(true), 1550);
     setTimeout(() => setBoton3(true), 1800);
@@ -81,24 +81,20 @@ export const Ventana = () => {
             className={"modal-content2 animate__animated animate__shakeX"}
             style={{
               display:
-                (acierto === false) & (startedGame === false) ? "" : "none",
+                (acierto === false) & (startedGame === null) ? "" : "none",
             }}
           >
             <h1 className="mensajeError">Erorr</h1>
           </div>
           <div
-            className="game-area"
+            className="game-area animate__animated animate__backInDown"
             style={{
               display: startedGame === true ? "" : "none",
             }}
           >
             {startedGame === true && <Juego />}
 
-            <button
-              onClick={closeGame}
-              className="boton-game"
-              style={{ display: boton3 === true ? "" : "none" }}
-            >
+            <button onClick={closeGame} className="boton-game">
               Cerrar
             </button>
           </div>

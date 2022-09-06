@@ -1,17 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
 import Juego from "./Game";
+import { GifExpertApp } from "./GifExpertApp";
 import Matrix from "./Matrix";
 
 export const Ventana = () => {
   const [isShow, setIsShow] = useState(false);
-  const [startedGame, setStartedGame] = useState(null);
+  const [startedGame, setStartedGame] = useState(false);
   const [color, setColor] = useState("#39FF14");
-
+  const [buscarGifs, setBuscarGifs] = useState(false);
   const [comando, setComando] = useState("");
   const [acierto, setAcierto] = useState(null);
   const [boton1, setBoton1] = useState(false);
   const [boton2, setBoton2] = useState(false);
   const [boton3, setBoton3] = useState(false);
+  // const [boton4, setBoton4] = useState(false);
   // const [next, setNext] = useState(false);
   useEffect(() => {
     setTimeout(() => setIsShow(true), 3000);
@@ -23,6 +25,7 @@ export const Ventana = () => {
   useEffect(() => {
     access.current.focus();
   }, [acierto]);
+
   const access = useRef(null);
 
   const onClose = (event) => {
@@ -33,6 +36,7 @@ export const Ventana = () => {
       setTimeout(() => setBoton1(true), 1300);
       setTimeout(() => setBoton2(true), 1550);
       setTimeout(() => setBoton3(true), 1800);
+      // setTimeout(() => setBoton4(true), 2050);
     } else {
       setAcierto(false);
       setColor("#FF0000");
@@ -50,12 +54,14 @@ export const Ventana = () => {
     setBoton1(false);
     setBoton2(false);
     setBoton3(false);
+    // setBoton4(false);
   };
 
   const startGame = () => {
     setBoton1(false);
     setBoton2(false);
     setBoton3(false);
+    // setBoton4(false);
     setAcierto(false);
 
     setStartedGame(true);
@@ -67,6 +73,27 @@ export const Ventana = () => {
     setTimeout(() => setBoton1(true), 1300);
     setTimeout(() => setBoton2(true), 1550);
     setTimeout(() => setBoton3(true), 1800);
+    // setTimeout(() => setBoton4(true), 2050);
+  };
+
+  const closeGif = () => {
+    setBuscarGifs(false);
+    setAcierto(true);
+    setTimeout(() => setBoton1(true), 1300);
+    setTimeout(() => setBoton2(true), 1550);
+    setTimeout(() => setBoton3(true), 1800);
+    // setTimeout(() => setBoton4(true), 2050);
+  };
+
+  const onSearchGifs = () => {
+    setAcierto(null);
+    setComando("");
+    setBoton1(false);
+    setBoton2(false);
+    setBoton3(false);
+    // setBoton4(false);
+
+    setBuscarGifs(true);
   };
 
   return (
@@ -78,10 +105,14 @@ export const Ventana = () => {
           style={{ display: isShow ? "" : "none" }}
         >
           <div
-            className={"modal-content2 animate__animated animate__shakeX"}
+            className="modal-content2 animate__animated animate__shakeX"
             style={{
               display:
-                (acierto === false) & (startedGame === null) ? "" : "none",
+                (acierto === false) &
+                (startedGame === false) &
+                (buscarGifs === false)
+                  ? ""
+                  : "none",
             }}
           >
             <h1 className="mensajeError">Erorr</h1>
@@ -100,7 +131,11 @@ export const Ventana = () => {
           </div>
           <div
             className="modal-content"
-            style={{ display: acierto !== false ? "" : "none" }}
+            style={{
+              display: acierto !== false ? "" : "none",
+              height: buscarGifs === true ? "600px" : "",
+              width: buscarGifs === true ? "600px" : "",
+            }}
           >
             <form id="ventana" onSubmit={onClose}>
               <input
@@ -112,9 +147,25 @@ export const Ventana = () => {
                 placeholder="npm run help"
                 onChange={(event) => setComando(event.target.value)}
                 name="comando"
-                style={{ display: acierto === true ? "none" : "" }}
+                style={{
+                  display:
+                    (acierto === true) | (buscarGifs === true) ? "none" : "",
+                }}
               />
             </form>
+            <div>
+              <button
+                style={{
+                  display: buscarGifs === true ? "" : "none",
+                }}
+                onClick={closeGif}
+                className="boton-gif"
+              >
+                ❌
+              </button>
+              {buscarGifs === true && <GifExpertApp />}
+            </div>
+
             <div>
               <h1
                 className="comandos"
@@ -144,12 +195,20 @@ export const Ventana = () => {
                 </button>
 
                 <button
-                  onClick={onClear}
+                  onClick={onSearchGifs}
                   className="boton"
                   style={{ display: boton3 === true ? "" : "none" }}
                 >
-                  Limpiar
+                  Gifs
                 </button>
+
+                {/* <button
+                  onClick={onClear}
+                  className="boton"
+                  style={{ display: boton4 === true ? "" : "none" }}
+                >
+                  Limpiar
+                </button> */}
               </div>
             </div>
           </div>

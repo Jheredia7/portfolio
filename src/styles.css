@@ -71,7 +71,7 @@ body {
   position: relative;
 
   color: #ffffff;
-  width: 22%;
+  width: 26%;
   height: 8%;
   margin: auto;
   padding: 20px;
@@ -129,7 +129,7 @@ body {
   color: #39ff14;
   border: #000000;
   outline-color: #000000;
-  float: left;
+
   text-decoration: none;
 }
 .terminal:focus {
@@ -139,6 +139,28 @@ body {
 .terminal::placeholder {
   color: #189f00;
   opacity: 50%;
+}
+.buscador {
+  width: 100%;
+
+  font-size: 25px;
+  background-color: transparent;
+  color: #39ff14;
+  border: #000000;
+  outline-color: #000000;
+
+  text-decoration: none;
+}
+.buscador:focus {
+  outline: none;
+}
+
+.buscador::placeholder {
+  color: #189f00;
+  opacity: 50%;
+}
+.gif-card {
+  width: 200px;
 }
 .comandos {
   display: table;
@@ -208,6 +230,17 @@ body {
 
   text-decoration: none;
 }
+.boton-gif {
+  position: relative;
+  left: 500px;
+  top: 30px;
+  opacity: 100%;
+  font-size: 15px;
+  background-color: transparent;
+  border: none;
+  width: 30%;
+  color: #000000;
+}
 
 .game-area {
   position: relative;
@@ -225,8 +258,8 @@ body {
   position: absolute;
   width: 2%;
   height: 2%;
-  background-color: #39ff14;
-  border: 1px solid #000;
+  background-color: #000000;
+  border: 1px solid rgb(255, 255, 255);
   z-index: 2;
 }
 
@@ -234,7 +267,7 @@ body {
   position: absolute;
   width: 2%;
   height: 2%;
-  background-color: rgb(255, 2, 230);
+  background-color: rgb(26, 255, 0);
   border: 1px solid rgb(255, 255, 255);
   z-index: 1;
 }

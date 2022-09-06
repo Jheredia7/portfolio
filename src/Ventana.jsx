@@ -133,8 +133,9 @@ export const Ventana = () => {
             className="modal-content"
             style={{
               display: acierto !== false ? "" : "none",
-              height: buscarGifs === true ? "600px" : "",
-              width: buscarGifs === true ? "600px" : "",
+              height: buscarGifs === true ? "800px" : "",
+              width: buscarGifs === true ? "1000px" : "",
+              top: buscarGifs === true ? "-170px" : "",
             }}
           >
             <form id="ventana" onSubmit={onClose}>

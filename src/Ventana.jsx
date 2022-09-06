@@ -115,7 +115,7 @@ export const Ventana = () => {
                   : "none",
             }}
           >
-            <h1 className="mensajeError">Erorr</h1>
+            <h1 className="mensajeError">Error</h1>
           </div>
           <div
             className="game-area"

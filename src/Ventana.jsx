@@ -1,14 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
-import Juego from "./Game";
-import { GifExpertApp } from "./GifExpertApp";
-import Matrix from "./Matrix";
+import React, { useEffect, useRef, useState } from 'react';
+import Juego from './Game';
+import { GifExpertApp } from './GifExpertApp';
+import Matrix from './Matrix';
 
 export const Ventana = () => {
   const [isShow, setIsShow] = useState(false);
   const [startedGame, setStartedGame] = useState(false);
-  const [color, setColor] = useState("#39FF14");
+  const [color, setColor] = useState('#39FF14');
   const [buscarGifs, setBuscarGifs] = useState(false);
-  const [comando, setComando] = useState("");
+  const [comando, setComando] = useState('');
   const [acierto, setAcierto] = useState(null);
   const [boton1, setBoton1] = useState(false);
   const [boton2, setBoton2] = useState(false);
@@ -31,7 +31,7 @@ export const Ventana = () => {
   const onClose = (event) => {
     event.preventDefault();
     event.target.reset();
-    if (comando === "npm run help") {
+    if (comando === 'npm run help') {
       setAcierto(true);
       setTimeout(() => setBoton1(true), 1300);
       setTimeout(() => setBoton2(true), 1550);
@@ -39,18 +39,18 @@ export const Ventana = () => {
       // setTimeout(() => setBoton4(true), 2050);
     } else {
       setAcierto(false);
-      setColor("#FF0000");
+      setColor('#FF0000');
 
       setTimeout(() => setAcierto(null), 1500);
-      setTimeout(() => setColor("#39FF14"), 1500);
-      setComando("");
+      setTimeout(() => setColor('#39FF14'), 1500);
+      setComando('');
       console.log(comando);
     }
   };
 
   const onClear = () => {
     setAcierto(null);
-    setComando("");
+    setComando('');
     setBoton1(false);
     setBoton2(false);
     setBoton3(false);
@@ -87,7 +87,7 @@ export const Ventana = () => {
 
   const onSearchGifs = () => {
     setAcierto(null);
-    setComando("");
+    setComando('');
     setBoton1(false);
     setBoton2(false);
     setBoton3(false);
@@ -98,11 +98,14 @@ export const Ventana = () => {
 
   return (
     <>
-      <Matrix fullscreen={true} color={color} />
+      <Matrix
+        fullscreen={true}
+        color={color}
+      />
       <div>
         <div
-          className={"modalContainer animate__animated animate__fadeInDownBig "}
-          style={{ display: isShow ? "" : "none" }}
+          className={'modalContainer animate__animated animate__fadeInDownBig '}
+          style={{ display: isShow ? '' : 'none' }}
         >
           <div
             className="modal-content2 animate__animated animate__shakeX"
@@ -111,8 +114,8 @@ export const Ventana = () => {
                 (acierto === false) &
                 (startedGame === false) &
                 (buscarGifs === false)
-                  ? ""
-                  : "none",
+                  ? ''
+                  : 'none',
             }}
           >
             <h1 className="mensajeError">Error</h1>
@@ -120,25 +123,28 @@ export const Ventana = () => {
           <div
             className="game-area"
             style={{
-              display: startedGame === true ? "" : "none",
+              display: startedGame === true ? '' : 'none',
             }}
           >
             {startedGame === true && <Juego />}
 
-            <button onClick={closeGame} className="boton-game">
+            <button
+              onClick={closeGame}
+              className="boton-game"
+            >
               ❌
             </button>
           </div>
           <div
             className="modal-content"
             style={{
-              display: acierto !== false ? "" : "none",
-              height: buscarGifs === true ? "800px" : "",
-              width: buscarGifs === true ? "1000px" : "",
-              top: buscarGifs === true ? "-170px" : "",
+              display: acierto !== false ? '' : 'none',
             }}
           >
-            <form id="ventana" onSubmit={onClose}>
+            <form
+              id="ventana"
+              onSubmit={onClose}
+            >
               <input
                 autoComplete="off"
                 spellCheck={false}
@@ -150,14 +156,14 @@ export const Ventana = () => {
                 name="comando"
                 style={{
                   display:
-                    (acierto === true) | (buscarGifs === true) ? "none" : "",
+                    (acierto === true) | (buscarGifs === true) ? 'none' : '',
                 }}
               />
             </form>
             <div>
               <button
                 style={{
-                  display: buscarGifs === true ? "" : "none",
+                  display: buscarGifs === true ? '' : 'none',
                 }}
                 onClick={closeGif}
                 className="boton-gif"
@@ -172,7 +178,7 @@ export const Ventana = () => {
                 className="comandos"
                 type="text"
                 name="comandos"
-                style={{ display: acierto === true ? "" : "none" }}
+                style={{ display: acierto === true ? '' : 'none' }}
               >
                 Estos son los comandos disponibles:
                 <span className="spani">&#160;</span>
@@ -183,14 +189,14 @@ export const Ventana = () => {
                   href="https://www.linkedin.com/in/juanherediar/"
                   target="_blank"
                   className="boton"
-                  style={{ display: boton1 === true ? "" : "none" }}
+                  style={{ display: boton1 === true ? '' : 'none' }}
                 >
                   Sobre mi
                 </a>
                 <button
                   onClick={startGame}
                   className="boton"
-                  style={{ display: boton2 === true ? "" : "none" }}
+                  style={{ display: boton2 === true ? '' : 'none' }}
                 >
                   Mini-juego
                 </button>
@@ -198,7 +204,7 @@ export const Ventana = () => {
                 <button
                   onClick={onSearchGifs}
                   className="boton"
-                  style={{ display: boton3 === true ? "" : "none" }}
+                  style={{ display: boton3 === true ? '' : 'none' }}
                 >
                   Gifs
                 </button>
